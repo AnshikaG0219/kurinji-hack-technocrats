@@ -12,6 +12,7 @@
 }
 .logo-upper{
   text-align: center;
+  margin-top: 1rem;
 }
 .logo {
   color: black;
@@ -36,13 +37,19 @@
   flex: 0 0 150px;
   width: 150px;
   height: 100%;
-  font-size: 1vh;
   background-color: #fff;
   color: #848697;
   border-radius: 3px 0 0 3px;
 }
 .navigation li a{
   color: #848697; 
+}
+.navigation li i::before{
+  font-size: 1rem;
+  margin-right: 1vh;
+}
+.navigation li a:hover{
+  color: var(--green)
 }
 .logo {
   color: black;
@@ -86,10 +93,6 @@
 
 .navigation a {
     text-decoration: none;
-}
-
-.navigation li i {
-  font-size: 20px;
 }
 
 .navigation li span {
