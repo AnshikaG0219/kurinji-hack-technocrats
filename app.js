@@ -28,6 +28,7 @@ app.use(passport.session());
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 app.get("/", home.root);
+app.get("/how-we-work", home.work);
 app.get("/login", login.loginGET)
 app.get("/register", register.registerGET)
 app.post("/login", login.loginPOST)
