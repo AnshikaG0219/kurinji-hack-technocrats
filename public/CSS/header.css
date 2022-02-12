@@ -22,7 +22,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.4);
+    /* background: rgba(191, 227, 149, 0.358); */
+    background: rgba(143, 241, 233, 0.167);
     padding: 1rem 2vw;
     position: absolute;
     left: 5vw;

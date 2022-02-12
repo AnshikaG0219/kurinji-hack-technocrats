@@ -1,5 +1,5 @@
 .f-icons {
-  color: var(--green) !important;
+  color: green !important;
 }
 
 .footer-section{
@@ -12,7 +12,7 @@
 
 .footer-logo a{
     font-size: 2rem;
-    color: var(--green);
+    color: green;
 }
 
 .footer-widget{
@@ -32,7 +32,7 @@
   bottom: -15px;
   height: 2px;
   width: 50px;
-  background: var(--green);
+  background: green;
 }
 .footer-widget ul li {
   display: inline-block;
