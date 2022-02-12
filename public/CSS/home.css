@@ -1,0 +1,40 @@
+/* .header{
+    background-image: url('');
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 2rem;
+}
+.heading {  
+  text-align: center;
+  padding: 6rem 0;
+  padding-bottom: 7rem;
+}
+.header .btn{
+  background-color: #0a588b;
+} */
+.top-banner{
+  display: flex;
+  /* width: 90%; */
+  margin: auto;
+  background-image: url("../Assets/bg-illust.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading-content{
+  width: 60%;
+}
+.top-banner img{
+  width: 50%;
+  padding-top: 5vw;
+}
+.bg-illust {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.illust{
+  object-fit: cover;
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+:root{
+    --blue: #2d3092;
+    --dark-grey: #757575;
+    --light-grey: #f4f4f4;
+    --green: #5ab2b3;
+    --yellow: #e9c861;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+}
+nav{
+    position: absolute;
+    display: flex;
+    width: 90%;
+    left: 5%;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: 3vw;
+}
+nav ul{
+    display: flex;
+    width: 40%;
+    align-items: center;
+    justify-content: space-around;
+}
+nav ul li{
+    list-style: none;
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: .8rem;
+    font-weight: 500;
+}
+nav ul li a:hover{
+    color: #555;
+}
+.logo{
+    width: 3vw;
+}
+.signup{
+    background-color: var(--green);
+    color: #fff;
+    padding: .5vw 1vw;
+    border-radius: 2vw;
+}
+.signup:hover{
+    background-color: var(--yellow);
+    color: #fff;
+}
