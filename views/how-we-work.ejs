@@ -1,35 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/work.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Document</title>
-</head>
-<body>
-
-     <div class="steps">
-         <div class="step img-active">
-            <img src="/Assets/step1.jpg">
-            <p>step 1</p>
+<%- include("partials/header.ejs"); %>
+<section class="work">
+    <h1 data-aos="fade-right">Steps to Follow : Customer</h1>
+    <div data-aos="fade-right" class="underline"></div>
+    <div class="steps">
+         <div class="step-customer img-active">
+            <img src="https://img.freepik.com/free-vector/group-happy-people-picking-up-litter-while-jogging_179970-3183.jpg?size=626&ext=jpg">
+            <p><span style="color: green;">Step 1</span>: Collect things that you no longer need</p>
          </div>
 
-          <div class="step">
-            <img src="/Assets/step1.jpg">
-            <p>step 2</p>
+          <div class="step-customer">
+            <img src="https://img.freepik.com/free-vector/order-confirmed-concept-illustration_114360-1545.jpg">
+            <p><span style="color: green;">Step 2</span>: Raise a Request for pick up on our website</p>
          </div>
 
-          <div class="step">
-            <img src="/Assets/header-img.png">
-            <p>step 3</p>
+          <div class="step-customer">
+            <img src="/Assets/step2.jpg">
+            <p><span style="color: green;">Step 3</span>: Pick-up arranged by us</p>
          </div>
 
-          <div class="step">
+          <div class="step-customer">
             <img src="https://img.freepik.com/free-vector/refund-concept-illustration_114360-6723.jpg?w=1800">
-            <p>Incentives</p>
+            <p><span style="color: green;">Step 4</span>: Sit back and wait to receive incentives!</p>
          </div>
         
     </div>
@@ -37,76 +28,54 @@
     <div class="container">
         <div class="progress-container">
           <div class="progress" id="progress"></div>
-          <div class="circle active">1</div>
-          <div class="circle">2</div>
-          <div class="circle">3</div>
-          <div class="circle">4</div>
+          <div class="circle-customer active-customer"><span>1</span></div>
+          <div class="circle-customer"><span>2</span></div>
+          <div class="circle-customer"><span>3</span></div>
+          <div class="circle-customer"><span>4</span></div>
         </div>
       </div>
-        <button class="btn" id="prev" disabled>Prev</button>
-        <button class="btn" id="next">Next</button>
+        <button class="btn" id="prev-customer" disabled>Prev</button>
+        <button class="btn" id="next-customer">Next</button>
 
 
-        <script>
-            const progress = document.getElementById("progress");
-            const prev = document.getElementById("prev");
-            const next = document.getElementById("next");
-            const circles = document.querySelectorAll(".circle");
-            const steps = document.querySelectorAll(".step");
+      <h1 data-aos="fade-left" style="padding-top: 5rem;">Steps to Follow : Small Business</h1>
+       <div data-aos="fade-left" class="underline"></div>
+      <div class="steps">
+         <div class="step-business img-active">
+            <img src="https://img.freepik.com/free-vector/group-happy-people-picking-up-litter-while-jogging_179970-3183.jpg?size=626&ext=jpg">
+            <p><span style="color: green;">Step 1</span>: Collect things that you no longer need</p>
+         </div>
 
-            let currentActive = 1;
+          <div class="step-business">
+            <img src="https://img.freepik.com/free-vector/order-confirmed-concept-illustration_114360-1545.jpg">
+            <!-- <img src="https://cdni.iconscout.com/illustration/premium/thumb/purchase-from-e-wallet-2739540-2283928.png" alt=""> -->
+            <p><span style="color: green;">Step 2</span>: Raise a Request for pick up on our website</p>
+         </div>
 
-            next.addEventListener("click", () => {
-                currentActive++;
-                if (currentActive > circles.length) {
-                    currentActive = circles.length;
-                }
-                update_img();
-                update();
-            });
+          <div class="step-business">
+            <img src="/Assets/step2.jpg">
+            <p><span style="color: green;">Step 3</span>: Pick-up arranged by us</p>
+         </div>
 
-            prev.addEventListener("click", () => {
-                currentActive--;
-                if (currentActive < 1) {
-                    currentActive = 1;
-                }
-                update_img();
-                update();
-            });
+          <div class="step-business">
+            <img src="https://img.freepik.com/free-vector/refund-concept-illustration_114360-6723.jpg?w=1800">
+            <p><span style="color: green;">Step 4</span>: Sit back and wait to receive incentives!</p>
+         </div>
+        
+    </div>
+    
+    <div class="container">
+        <div class="progress-container">
+          <div class="progress" id="progress1"></div>
+          <div class="circle-business active-business"><span>1</span></div>
+          <div class="circle-business"><span>2</span></div>
+          <div class="circle-business"><span>3</span></div>
+          <div class="circle-business"><span>4</span></div>
+        </div>
+      </div>
+        <button class="btn" id="prev-business" disabled>Prev</button>
+        <button class="btn" id="next-business">Next</button>
 
-            function update_img() {
-                steps.forEach((step, index) => {
-                    if (index == currentActive - 1) {
-                        step.classList.add("img-active");
-                    } else {
-                        step.classList.remove("img-active");
-                    }
-                });
-            }
-
-            function update() {
-                circles.forEach((circle, index) => {
-                    if (index < currentActive) {
-                        circle.classList.add("active");
-                    } else {
-                        circle.classList.remove("active");
-                    }
-                });
-
-                const actives = document.querySelectorAll(".active");
-                progress.style.width = `${((actives.length - 1) / (circles.length - 1)) * 100
-                    }%`;
-
-                if (currentActive === 1) {
-                    prev.disabled = true;
-                } else if (currentActive === circles.length) {
-                    next.disabled = true;
-                } else {
-                    prev.disabled = false;
-                    next.disabled = false;
-                }
-            }
-
-        </script>
-</body>
-</html>
+</section>
+     
+<%- include("partials/footer.ejs"); %>

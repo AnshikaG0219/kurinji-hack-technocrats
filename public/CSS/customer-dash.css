@@ -1,0 +1,53 @@
+
+@charset "UTF-8";
+
+/* Sidebar */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.container .form {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .form .form-input input {
+  display: none;
+}
+
+.container .form .form-input label {
+display: block;
+background: #fdfdfd;
+border: 1px solid #eee;
+text-align:center ;
+padding: 15px;
+}
+
+.container .form .form-input label .title {
+font-size: 18px;
+color: #2371e0;
+font-weight: 600;
+}
+
+.container .form .form-input label .price {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 10px 0px 2px;
+  color: #222;
+}
+
+

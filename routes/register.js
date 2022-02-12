@@ -10,12 +10,13 @@ passport.deserializeUser(User.deserializeUser());
 exports.registerGET = (req, res) => {
   res.render("register");
 };
-exports.registerPOST = (req, res) => {
+exports.registerUserPOST = (req, res) => {
   User.register(
     {
       name: req.body.name,
       username: req.body.username,
-      phone: req.body.phone
+      phone: req.body.phone,
+      role: "user"
     },
     req.body.password,
     function (err, user) {
@@ -24,9 +25,29 @@ exports.registerPOST = (req, res) => {
         res.redirect("/register");
       } else {
         passport.authenticate("local")(req, res, function () {
-          res.redirect("/")
+          res.redirect("/user")
         });
       }
     }
   );
 };
+exports.registerCompanyPOST = (req, res) => {
+  User.register({
+    username: req.body.username,
+    name: req.body.name,
+    phone: req.body.phone,
+    role: "company",
+    service: req.body.service
+  },
+  req.body.password,
+  function(err, comp){
+    if(err){
+      console.log(err);
+      res.redirect("/register")
+    }else{
+      passport.authenticate("local")(req, res, function () {
+        res.redirect("/company")
+      });
+    }
+  })
+}

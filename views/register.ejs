@@ -1,27 +1,35 @@
 <%- include("partials/header.ejs"); %>
     <div class="register-main">
-        <div class="form-main">
-            <img src="Assets/bg-01.png" class="form-illust" alt="log in or register">
-            <form action="/register" method="post">
-                <h1>Register</h1>
-                <div class="form-group">
-                    <label for="text">Name</label>
-                    <input type="text" autofocus required name="name" id="name">
+        <h1>Register</h1>
+        <div class="form-structor">
+            <div class="signup">
+                <h2 class="form-title" id="signup"><span>or</span>User</h2>
+                <div class="form-holder">
+                    <form action="/register-user" method="post">
+                        <input type="text" autofocus required class="input" placeholder="Name" name="name"/>
+                        <input type="email" required class="input" placeholder="Email" name="username" />
+                        <input type="text" required class="input" placeholder="Phone Number" name="phone"/>
+                        <input type="password" required class="input" placeholder="Password" name="password" />
+                        <button type="submit" class="submit-btn">Sign Up</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="text">Phone Number</label>
-                    <input type="text" required name="phone" id="phone">
+            </div>
+            <div class="login slide-up">
+                <div class="center">
+                    <h2 class="form-title" id="login"><span>or</span>Company</h2>
+                    <div class="form-holder">
+                        <form action="/register-company" method="post">
+                            <input type="text" autofocus required class="input" placeholder="Company Name" name="name" />
+                            <input type="email" required class="input" placeholder="Email" name="username" />
+                            <input type="text" required class="input" placeholder="Phone Number" name="phone"/>
+                            <input type="text" required class="input" placeholder="Service Type" name="service"/>
+                            <input type="password" required class="input" placeholder="Password" name="password"/>
+                            <button type="submit" class="submit-btn">Sign Up</button>
+                        </form>
+                    </div>
+                    
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" required name="username" id="username">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" required name="password" id="password">
-                </div>
-                <button class="btn" type="submit">REGISTER</button>
-            </form>
+            </div>
         </div>
     </div>
 <%- include("partials/footer.ejs"); %>

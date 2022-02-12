@@ -20,7 +20,12 @@ exports.loginPOST = (req, res) => {
       console.log(err);
     } else {
       passport.authenticate("local")(req, res, function () {
-       res.redirect("/")
+        if(req.user.role === "company")
+          res.redirect("/company")
+        else if(req.user.role === "user")
+          res.redirect("/user")
+        else
+          res.redirect("/logout")
       });
     }
   });
