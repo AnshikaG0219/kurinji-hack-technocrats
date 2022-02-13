@@ -4,7 +4,7 @@
   "description": "sustainable hack",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Anshika",
   "license": "ISC",
