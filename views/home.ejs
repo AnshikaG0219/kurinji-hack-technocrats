@@ -1,16 +1,21 @@
 <%- include("partials/header.ejs"); %>
-    <div class="home-main">
-        <div class="top-banner">
-            <div class="heading-content">
-                <h1>..</h1>
-                <h4>..</h4>
-                <!-- <button type="submit" class="btn btn-dark button-28">Join Us</button> -->
-            </div>
-            <!-- <img src="Assets/earth.jpg" class="top-illust illust" alt=""> -->
+<div class="home-main">     
+    <div class="container-fluid">
+         <div class="row heading">
+            <div class="col-lg-6">
+                <div class="heading-content" data-aos="fade-right">
+                    <h1>Power up to save the <span>environment</span></h1>
+                    <h4>Reuse. Reduce. Recycle.</h4>
+                 </div>
+             </div>
+            <div class="col-lg-6">
+        <img data-aos="fade-left" src="/Assets/earth-header.png" alt="disposing">
         </div>
-        <div class="about-desc">
-            <h1>What do we do</h1>
-
         </div>
     </div>
+    <!-- <div class="about-desc">
+            <h1 class="text-center">How We Work</h1>
+    </div> -->
+    <%- include("recycle-section.ejs") %>
+</div>
 <%- include("partials/footer.ejs"); %>

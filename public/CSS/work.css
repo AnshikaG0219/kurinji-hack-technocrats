@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --line-border-empty: rgba(116, 116, 116, 0.747);
+  --line-border-fill: rgb(34, 114, 2);
+}
+
+.work {
+  font-family: "Muli", sans-serif;
+  margin: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  /* overflow: hidden; */
+  padding: 15rem 0 5rem;
+}
+
+.work .container {
+	display: flex;
+	align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 650px;
+  position: relative
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: .4s ease;
+}
+
+.circle-customer, .circle-business{
+  background-color: white;
+  color: #999;
+  border-radius: 60%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: .4s ease;
+}
+
+.circle-customer.active-customer, .circle-business.active-business {
+  border-color: var(--line-border-fill);
+  font-size: 30px;
+  color: black;
+}
+
+.work .btn {
+  background-color: rgba(33, 114, 2, 0.753);
+  color: black;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+  width: 9%;
+}
+
+.work .btn:active {
+  transform: scale(.98);
+}
+
+.work .btn:focus {
+  outline: 0;
+}
+
+.work .btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+
+.work .step-customer{
+	display: none !important;
+}
+
+.work .step-business {
+	display: none !important;
+}
+
+.work .img-active {
+    display: block !important;
+}
+
+.work img {
+    max-width: 30%;
+    max-height: auto;
+}
+
+.work .steps img{
+  max-height: 15rem;
+  min-width: 20rem;
+  min-height: 15rem;
+}
+
+.work .steps-business img{
+  max-height: 15rem;
+  min-width: 20rem;
+  min-height: 15rem;
+}
+.work .steps-customer img{
+  max-height: 15rem;
+  min-width: 20rem;
+  min-height: 15rem;
+}
+.work p{
+  font-family: var(--font-sans2);
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+.work .step-customer {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  align-items: center;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  /* display: flex; */
+  padding: 2rem 0;
+  text-align: center;
+  margin: 3rem auto;
+}
+
+.work .step-business {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  align-items: center;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  /* display: flex; */
+  padding: 2rem 0;
+  text-align: center;
+  margin: 3rem auto;
+}

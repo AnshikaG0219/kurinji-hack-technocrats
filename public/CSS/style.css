@@ -2,3 +2,9 @@
   --green: #5ab2b3;
   --yellow: #e9c861;
 }
+.underline{
+  width: 7%;
+  height: 4px;
+  background-color: var(--green);
+  margin: 2vw auto;
+}

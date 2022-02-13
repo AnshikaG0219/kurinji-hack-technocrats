@@ -1,0 +1,109 @@
+<%- include("partials/header.ejs"); %>
+<div class="timeline-container" id="timeline-1">
+    <div class="timeline-header">
+        <h2 class="timeline-header__title"><b>PROCESS</b></h2>
+        <h3 class="timeline-header__subtitle">We stan transparency!</h3>
+    </div>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline__content">
+                <h2 class="timeline__content-title">1.</h2>
+                <img class="timeline__img" src="Assets/process1.jpg" />
+                <p class="timeline_content-desc"><center>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mauris leo, maximus eu arcu sed, mollis posuere nisi. In quis tortor vitae tellus maximus fermentum.</center></p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline__content">
+                <h2 class="timeline__content-title">2.</h2>
+                <img class="timeline__img" src="Assets/process2.jpg" />
+                <p class="timeline_content-desc"><center>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mauris leo, maximus eu arcu sed, mollis posuere nisi. In quis tortor vitae tellus maximus fermentum.</center></p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline__content">
+                <h2 class="timeline__content-title">3.</h2>
+                <img class="timeline__img" src="Assets/process3.jpg" />
+                <p class="timeline_content-desc"><center>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mauris leo, maximus eu arcu sed, mollis posuere nisi. In quis tortor vitae tellus maximus fermentum.</center></p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline__content">
+                <h2 class="timeline__content-title">4.</h2>
+                <img class="timeline__img" src="Assets/process4.jpg" />
+                <p class="timeline_content-desc"><center>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mauris leo, maximus eu arcu sed, mollis posuere nisi. In quis tortor vitae tellus maximus fermentum.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline__content">
+                <h2 class="timeline__content-title">5.</h2>
+                <img class="timeline__img" src="Assets/process5.jpg" />
+                <p class="timeline_content-desc"><center>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mauris leo, maximus eu arcu sed, mollis posuere nisi. In quis tortor vitae tellus maximus fermentum.</center></p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline__content">
+                <h2 class="timeline__content-title">6.</h2>
+                <img class="timeline__img" src="Assets/process6.jpg" />
+                <p class="timeline_content-desc"><center>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mauris leo, maximus eu arcu sed, mollis posuere nisi. In quis tortor vitae tellus maximus fermentum.</center></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function($) {
+        $.fn.timeline = function() {
+            var selectors = {
+                id: $(this),
+                item: $(this).find(".timeline-item"),
+                activeClass: "timeline-item--active",
+                img: ".timeline__img"
+            };
+            selectors.item.eq(0).addClass(selectors.activeClass);
+            selectors.id.css(
+            "background-image",
+            "url(" +
+                selectors.item
+                .first()
+                .find(selectors.img)
+                .attr("src") +
+                ")"
+            );
+            var itemLength = selectors.item.length;
+            $(window).scroll(function() {
+                var max, min;
+                var pos = $(this).scrollTop();
+                selectors.item.each(function(i) {
+                    min = $(this).offset().top;
+                    max = $(this).height() + $(this).offset().top;
+                    var that = $(this);
+                    if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+                        selectors.item.removeClass(selectors.activeClass);
+                        selectors.id.css(
+                            "background-image",
+                            "url(" +
+                            selectors.item
+                                .last()
+                                .find(selectors.img)
+                                .attr("src") +
+                            ")"
+                        );
+                        selectors.item.last().addClass(selectors.activeClass);
+                    } else if (pos <= max - 40 && pos >= min) {
+                        selectors.id.css (
+                            "background-image",
+                            "url(" +
+                            $(this)
+                                .find(selectors.img)
+                                .attr("src") +
+                            ")"
+                        );
+                        selectors.item.removeClass(selectors.activeClass);
+                        $(this).addClass(selectors.activeClass);
+                    }
+                });
+            });
+        };
+    })(jQuery);
+    $("#timeline-1").timeline();
+</script>
+<%- include("partials/footer.ejs"); %>
