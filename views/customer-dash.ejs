@@ -1,75 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/customer-dash.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dash</title>
+  <link rel="stylesheet" href="/CSS/company-dash.css">
+  <link rel="stylesheet" href="/CSS/customer-dash.css">
+  <link rel="stylesheet" href="/CSS/sidebar.css">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- aos -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <title>Document</title>
+  <script src="jquery-3.5.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
-  <div class="container">
-    <div class="form">
-      <div class="form-input">
-        <input type="radio" name="item" id="plastic-item" value="">
-        <label for="plastic-item">Hello</label>
-        <div>
-          <div class="title">PLASTIC BOTTLE</div>
-          <div class="desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          </div>
+    <%- include("partials/sidebar.ejs") %> 
+    <a class="add-btn" href="/add-material" title="Add Material"><i class="fa-solid fa-plus"></i>Add Material</a>
+    <div class="dash-main">
+      <h1 class="tblTitle">Your materials</h1>
+      <div class="userTable">
+        <div class="tblHeader">
+          <table class="userTBL" cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Material Type</th>
+                <th>Weight (kg)</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+          </table>
         </div>
-      </div>
-
-      <div class="form-input">
-        <input type="radio" name="item" id="metal-item" value="">
-        <label for="metal-item"></label>
-        <div>
-          <div class="title">METAL BOTTLE</div>
-          <div class="desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eius perferendis distinctio accusamus eos eum necessitatibus quam provident? Blanditiis magni earum cumque molestiae, distinct.
-          </div>
-        </div>
-      </div>
-
-      <div class="form-input">
-        <input type="radio" name="item" id="glass-item" value="">
-        <label for="glass-item"></label>
-        <div>
-          <div class="title">BOTTLE</div>
-          <div class="desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eius perferendis distinctio accusamus eos eum necessitatibus quam provident? Blanditiis magni earum cumque molestiae, distinct.
-          </div>
-        </div>
-      </div>
-
-      <div class="form-input">
-        <input type="radio" name="item" id="cardboard-items" value="">
-        <label for="cardboard-items"></label>
-        <div>
-          <div class="title">BOTTLE</div>
-          <div class="desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eius perferendis distinctio accusamus eos eum necessitatibus quam provident? Blanditiis magni earum cumque molestiae, distinct.
-          </div>
+        <div class="tblContent">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <% material.forEach((ele, i) => { %>
+                <tr>
+                  <td><%= ele.materialType %></td>
+                  <td><%= ele.weight %></td>
+                  <td><%= ele.weight %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-  </div>
-  
-	
+    <script>
+      $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right':scrollWidth});
+      }).resize();
+    </script>
 </body>
-
-<script>
-  $(document).ready(function(){
-  $("#menu-toggle").click(function(e){
-    e.preventDefault();
-    $("#wrapper").toggleClass("menuDisplayed");
-  });
-});
-</script>
 
 </html>

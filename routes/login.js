@@ -8,7 +8,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 exports.loginGET = (req, res) => {
-  res.render("login");
+  if(req.isAuthenticated())
+  {
+    res.redirect("/logout")
+  } else {
+    res.render("login");
+  }
 };
 exports.loginPOST = (req, res) => {
   const user = new User({

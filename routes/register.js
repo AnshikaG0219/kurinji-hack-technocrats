@@ -16,7 +16,8 @@ exports.registerUserPOST = (req, res) => {
       name: req.body.name,
       username: req.body.username,
       phone: req.body.phone,
-      role: "user"
+      role: "user",
+      points: 0
     },
     req.body.password,
     function (err, user) {

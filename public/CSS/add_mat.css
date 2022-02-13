@@ -1,0 +1,88 @@
+:root{
+    --blue: #2d3092;
+    --dark-grey: #757575;
+    --light-grey: #f4f4f4;
+    --green: #5ab2b3;
+    --yellow: #e9c861;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-sans2: 'Poppins', sans-serif;
+}
+.add-main{
+    width: 85%;
+    margin-left: auto;
+    min-height: 100vh;
+    display: flex;
+}
+.mat-form{
+    width: 40%;
+    margin: auto;
+    box-shadow: 10px 13px 20px -10px rgba(0, 0, 0, 0.404);
+    border-radius: 2vh;
+    padding: 5% 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    font-family: var(--font-sans2);
+}
+.form-group input[type=number],
+.form-group input[type=text]{
+    outline: none;
+    border: none;
+    width: 100%;
+    border-bottom: 2px solid var(--green);
+}
+.mat-form h1{
+    text-align: center;
+    margin: 2vh 0;
+    color: #333;
+}
+.form-group h6{
+    font-weight: 500;
+    font-size: .8rem;
+    color: var(--dark-grey);
+}
+.mat{
+    box-sizing: border-box;
+    margin-right: 3vh;
+}
+.mat input[type=checkbox]{
+    display: none;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mat img{
+    width: 5vw;
+    box-sizing: border-box;
+}
+.mat h6{
+    text-align: center;
+}
+.mat input:checked + img{
+    border: 3px solid var(--green);
+    border-radius: 10px;
+}
+.form-group{
+    display: flex;
+    margin: 3vh 2vh;
+    width: 100%;
+}
+.form-group label{
+    width: 100%;
+}
+.submit-btn{
+    width: 100%;
+    background: var(--green);
+    border: none;
+    color: white;
+    font-family: var(--font-sans);
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 1vw 0;
+    border-radius: .4vw;
+    cursor: pointer;
+    z-index: 100;
+}
+.submit-btn:hover{
+    background: var(--yellow);
+}

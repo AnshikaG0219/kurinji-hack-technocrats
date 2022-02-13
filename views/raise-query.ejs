@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raise Query</title>
+    <link rel="stylesheet" href="/CSS/company-dash.css">
+    <link rel="stylesheet" href="/CSS/customer-dash.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/CSS/add_mat.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <%- include("partials/sidebar") %>
+        <div class="add-main">
+            <form class="mat-form" action="/raise-query" method="post">
+                <h1>Get Material</h1>
+                <div class="form-group">
+                    <label for="number">
+                        <h6>Weight (in KGs)</h6>
+                        <input type="number" required name="weight" id="">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="mat">
+                        <input type="checkbox" name="material" value="Metal" id="">
+                        <img src="https://cdn-icons.flaticon.com/png/512/3009/premium/3009992.png?token=exp=1644728388~hmac=aeb1e4ad4c88063af1c59c1b16c5b294"
+                            alt="">
+                            <h6>Metal</h6>
+                    </label>
+                    <label class="mat">
+                        <input type="checkbox" name="material" value="Plastic" id="">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1996/1996920.png"
+                            alt="">
+                            <h6>Plastic</h6>
+                    </label>
+                    <label class="mat">
+                        <input type="checkbox" name="material" value="Paper" id="">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1023/1023002.png"
+                            alt="">
+                            <h6>Paper</h6>
+                    </label>
+                    <label class="mat">
+                        <input type="checkbox" name="material" value="Glass" id="">
+                        <img src="https://cdn-icons.flaticon.com/png/512/2309/premium/2309442.png?token=exp=1644729255~hmac=4be4ecf81cd0426644aa7f6e0ce34439"
+                            alt="">
+                            <h6>Glass</h6>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="text">
+                        <h6>Delivery Address</h6>
+                        <input type="text" required name="address" id="">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="text">
+                        <h6>Postal Code</h6>
+                        <input type="text" required name="pin" maxlength="6" id="">
+                    </label>
+                </div>
+                <button class="submit-btn" type="submit">Submit</button>
+            </form>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<div class="sidebar">
+    <div class="logo-upper"><img class="logo" src="Assets/recycling.png" alt=""></div>
+    <div class="company">
+      <div class="company-name">Sustain Hack</div>
+      <div class="company-description">Dashboard</div>
+    </div>
+    <nav class="navigation">
+      <ul>
+        <!-- <li><i class="material-icons"></i><span>Market</span></li>
+                  <li><i class="material-icons"></i><span>Explore</span></li>
+                  <li><i class="material-icons"></i><span>Portfolio</span></li>
+                  <li><i class="material-icons"></i><span>Message</span></li>
+                  <li><i class="material-icons"></i><span>News</span></li> -->
+        <li><i class="fa-solid fa-user"></i><a href="/<%= user.role %>">
+            <%= user.name %>
+          </a></li>
+        <li><i class="fa-solid fa-power-off"></i><a href="/logout">Log out</a></li>
+      </ul>
+    </nav>
+  </div>
