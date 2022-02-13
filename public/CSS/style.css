@@ -8,3 +8,8 @@
   background-color: var(--green);
   margin: 2vw auto;
 }
+@media (max-width: 630px){
+  .underline{
+    width: 35%;
+  }
+}

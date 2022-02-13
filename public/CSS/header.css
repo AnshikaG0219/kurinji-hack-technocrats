@@ -88,6 +88,7 @@ nav .mob-box .mob-icon .bar {
 .active {
     display: flex !important;
 }
+
 @media (max-width: 630px) {
     nav {
         justify-content: space-between;
@@ -95,24 +96,37 @@ nav .mob-box .mob-icon .bar {
     nav .mob-box {
         display: flex;
    }
-    nav .link-box {
+    .link-box {
         position: absolute;
         border-radius: 5px;
         flex-direction: column;
         display: none;
         top: 100px;
         width: 100%;
-        left: 0;
-        background: #2890bd;
+        left: -200%;
+        height: 70vh;
+        background: var(--green);
+        transition: left 1s;
    }
     nav .link-box .link-item {
         border-radius: 0;
    }
+   nav .logo{
+       width: 13vw;
+   }
+   nav .link-box .link-item .link{
+       font-size: 1.5rem;
+   }
 }
-@media (min-width: 630px) {
+/* @media (min-width: 630px) {
     nav .link-box {
         display: flex !important;
    }
+} */
+.nav_active{
+    display: block;
+    left: 0;
+    transition: 1s;
 }
 /* * {
     padding: 0;

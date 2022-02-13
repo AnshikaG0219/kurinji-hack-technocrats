@@ -43,7 +43,7 @@ exports.addPOST = (req, res) => {
       up = { $inc: { paper: Number(req.body.weight) } };
     }
     Inventory.updateOne(
-      { _id: "6208b36374b8003b6489af58" },
+      { _id: "6208fbf0e575d9e25e112f1c" },
       up,
       function (err, u) {
         if (err) {

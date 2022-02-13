@@ -121,3 +121,8 @@ color: green;
 .flexbox p {
   text-align: center;
 }
+@media (max-width: 630px){
+  .heading-content{
+    margin: 40vw 0;
+  }
+}

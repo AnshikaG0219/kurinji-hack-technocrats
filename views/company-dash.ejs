@@ -21,26 +21,26 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- aos -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <!-- chart -->
-  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-  <script src="/js/chart.js"></script>
 </head>
 
 <body>
-    <%- include("partials/sidebar.ejs") %> 
+  <%- include("partials/sidebar.ejs") %>
+    <!-- <div data-aos="fade-right" class="underline"></div> -->
     <a class="add-btn" href="/raise-query" title="Raise Query"><i class="fa-solid fa-truck-ramp-box"></i>Raise Query</a>
-    
-    
+
     <div class="comp-dash-main">
-      <div id="chartdiv"></div>
-      <h1 class="comp-tblTitle">Your Intake</h1>
+      <h1 data-aos="fade-right">What we have in store for you</h1>
+      <div data-aos="fade-right" id="chartdiv"></div>
       <div class="comp-userTable">
         <div class="comp-tblHeader">
+          <% if(chartData) {var plastic=chartData.plastic} %>
+          <% if(chartData) {var metal=chartData.metal} %>
+          <% if(chartData) {var glass=chartData.glass} %>
+          <% if(chartData) {var paper=chartData.paper} %>
+          <h1 data-aos="fade-left" style="text-align: center;">Your previous purchase</h1>
           <table class="comp-tbl" cellpadding="0" cellspacing="0" border="0">
             <thead>
-              <tr>
+              <tr data-aos="fade-left">
                 <th>Material Type</th>
                 <th>Weight (kg)</th>
               </tr>
@@ -50,17 +50,105 @@
         <div class="comp-tblContent">
           <table cellpadding="0" cellspacing="0" border="0">
             <tbody>
-              <% material.forEach((ele, i) => { %>
+              <% material.forEach((ele, i)=> { %>
                 <tr>
-                  <td><%= ele.materialType %></td>
-                  <td><%= ele.weight %></td>
+                  <td>
+                    <%= ele.materialType %>
+                  </td>
+                  <td>
+                    <%= ele.weight %>
+                  </td>
                 </tr>
-              <% }) %>
+                <% }) %>
             </tbody>
           </table>
         </div>
       </div>
     </div>
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 250,
+        duration: 800,
+      });
+    </script>
+    <script>
+      var plastic = "<%= plastic %>";
+      var glass = "<%= glass %>";
+      var metal = "<%= metal %>";
+      var paper = "<%= paper %>";
+      // var metal = chartData.metal
+      // console.log(plastic);
+      console.log(plastic);
+      am5.ready(function () {
+
+        // Create root element
+
+
+        var root = am5.Root.new("chartdiv");
+
+        // Set themes
+        root.setThemes([
+          am5themes_Animated.new(root)
+        ]);
+
+        // Create chart
+        var chart = root.container.children.push(am5percent.PieChart.new(root, {
+          startAngle: 180,
+          endAngle: 360,
+          layout: root.verticalLayout,
+          innerRadius: am5.percent(50)
+        }));
+
+
+        // Create Series
+        var series = chart.series.push(am5percent.PieSeries.new(root, {
+          startAngle: 180,
+          endAngle: 360,
+          valueField: "value",
+          categoryField: "category",
+          alignLabels: false
+        }));
+
+        series.get("colors").set("colors", [
+          am5.color(0x7900FF),
+          am5.color(0x548CFF),
+          am5.color(0x93FFD8),
+          am5.color(0xCFFFDC),
+        ]);
+
+        series.states.create("hidden", {
+          startAngle: 180,
+          endAngle: 180
+        });
+
+        series.slices.template.setAll({
+          cornerRadius: 5
+        });
+
+        series.ticks.template.setAll({
+          forceHidden: true
+        });
+
+        series.labels.template.setAll({
+          text: ""
+        });
+        console.log();
+        series.data.setAll([
+          { value: Number(plastic), category: "Plastic" },
+          { value: Number(metal), category: "Metal" },
+          { value: Number(paper), category: "Paper" },
+          { value: Number(glass), category: "Glass" },
+        ]);
+
+        series.appear(1000, 100);
+
+      }); 
+    </script>
 </body>
 
 </html>

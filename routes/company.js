@@ -1,6 +1,6 @@
 const passport = require("passport");
 const Query = require("../models/query");
-const Inventory = require("../models/inventory")
+const Inventory = require("../models/inventory");
 // const accountSid = process.env.SID;
 // const authToken = process.env.AUTH_TOKEN;
 // const twilio = require('twilio')(accountSid, authToken, {
@@ -28,23 +28,15 @@ exports.joinPOST = (req, res) => {
 };
 exports.dash = (req, res) => {
   if (req.isAuthenticated() && req.user.role === "company") {
-      let total = 0;
-      let metal = 0;
-      let plastic = 0;
-      let glass = 0;
-      let paper = 0;
-    Inventory.findOne(
-        { _id: "6208b36374b8003b6489af58" },
-        function (err, u) {
-          console.log(u);
-          total += u.metal + u.plastic + u.paper + u.glass;
-          metal = (u.metal*100)/total;
-          console.log(total, metal);
-        }
-      );
-    Query.find({userID: req.user._id}, function(err, result){
-        res.render("company-dash", { user: req.user, material: result, total: total});
-    })
+    Query.find({ userID: req.user._id }, function (err, result) {
+      Inventory.findOne({ _id: "6208fbf0e575d9e25e112f1c" }, function (err, u) {
+        res.render("company-dash", {
+          user: req.user,
+          material: result,
+          chartData: u
+        });
+      });
+    });
   } else {
     res.redirect("/login");
   }
@@ -66,29 +58,28 @@ exports.raisePOST = (req, res) => {
   });
   let q = req.body.material.toLowerCase();
   let up;
-  const val = -1*Number(req.body.weight);
-  console.log(query, q, val);
+  const val = -1 * Number(req.body.weight);
   if (q == "metal") {
-    up = { $inc: { metal: val }}
-  } else if (query == "plastic") {
-    up = { $inc: { plastic: val }}
-  } else if (query == "glass") {
-    up = { $inc: { glass: val }}
-  } else if (query == "paper") {
-    up = { $inc: { paper: val }}
+    up = { $inc: { metal: val } };
+  } else if (q == "plastic") {
+    up = { $inc: { plastic: val } };
+  } else if (q == "glass") {
+    up = { $inc: { glass: val } };
+  } else if (q == "paper") {
+    up = { $inc: { paper: val } };
   }
   console.log(up, q, query, val);
   Inventory.findOneAndUpdate(
-    { _id: "6208b36374b8003b6489af58"},
+    { _id: "6208fbf0e575d9e25e112f1c" },
     up,
     function (err, u) {
       if (err) {
         console.log(err);
-        res.redirect("/company")
+        res.redirect("/company");
       } else {
         console.log(u);
       }
     }
   );
-  query.save(res.redirect("/company"))
+  query.save(res.redirect("/company"));
 };

@@ -1,3 +1,4 @@
+const Inventory  = require("../models/inventory")
 exports.root = (req, res) => {
     res.render("home")
 }

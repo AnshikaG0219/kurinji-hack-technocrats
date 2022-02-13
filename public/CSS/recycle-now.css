@@ -39,3 +39,12 @@
     transform: scale(1.2);
     cursor: pointer;
 }
+@media (max-width: 630px){
+    .materials{
+        flex-direction: column;
+    }
+    .mat-icon{
+        width: 20vw;
+        margin: 5vw 0;
+    }
+}
