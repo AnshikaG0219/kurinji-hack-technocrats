@@ -2,6 +2,12 @@ const User = require("../models/user");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+// const accountSid = process.env.SID;
+// const authToken = process.env.AUTH_TOKEN;
+// const twilio = require('twilio')(accountSid, authToken, {
+//     lazyLoading: true
+// });
+
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
